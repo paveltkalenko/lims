@@ -12,12 +12,12 @@ namespace WebUI.Controllers
     public class UsersController : Controller
     {
         private readonly IUserService userService;
-
+        UnitOfWork UnitOfWork;
         public UsersController(/*IUserService userService*/)
         {
             //this.userService = userService;
-
-            this.userService = new UserService(new BaseRepository<User>());
+            UnitOfWork = new UnitOfWork();
+            this.userService = new UserService(UnitOfWork);
         }
 
         // GET: Users

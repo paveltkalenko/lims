@@ -102,12 +102,11 @@
   <ItemGroup>
     <Compile Include="ApplicationBaseContext.cs" />
     <Compile Include="BaseRepository.cs" />
-    <Compile Include="Contexts\UsersContext.cs" />
+    <Compile Include="Contexts\CommonDataContext.cs" />
     <Compile Include="EntitiesConfiguration\UserConfiguration.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="LaboratoryTestContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -117,6 +116,9 @@
       <Project>{6981b0d1-9efe-4a02-801c-2dd3afa61337}</Project>
       <Name>Domain.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

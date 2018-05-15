@@ -11,5 +11,7 @@ namespace Application.Services.Interfaces
     {
         IEnumerable<User> GetListOfAllUsers();
         IEnumerable<User> GetListOfActiveUsers();
+        void AddUser(String username, String fullname);
+       // void AddUser(User user);
     }
 }

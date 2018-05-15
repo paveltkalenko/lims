@@ -3,26 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
-using Domain.Model.Entities;
+using Domain.Services;
 using Domain.Services.EntitiesConfiguration;
-using System.Configuration;
+using Microsoft.EntityFrameworkCore;
 
-namespace Domain.Services
+namespace Domain.Services.Contexts
 {
-    public class LaboratoryTestContext : ApplicationBaseContext
+    /// <summary>
+    /// Контекст c настройками таблиц
+    /// </summary>
+    public class CommonDataContext : ApplicationBaseContext
     {
-
-        public virtual DbSet<User> Users {get;set;}
-     
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
-
     }
-
-
 }
-

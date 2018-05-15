@@ -14,8 +14,7 @@ namespace Domain.Services
         private DbSet<T> _dbSet;
         public BaseRepository(DbContext context)
         {
-            //  db = context;
-            _context = new UsersContext();
+            _context = context;
             _dbSet = context.Set<T>();
 
         }
@@ -39,7 +38,8 @@ namespace Domain.Services
 
         public void Insert(T entity)
         {
-            throw new NotImplementedException();
+            _dbSet.Add(entity);
+          //  throw new NotImplementedException();
         }
 
         public void Remove(T entity)
@@ -57,25 +57,7 @@ namespace Domain.Services
             throw new NotImplementedException();
         }
 
-        private bool disposed = false;
 
-        public virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    _context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
     }
 
 

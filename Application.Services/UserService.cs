@@ -12,9 +12,22 @@ namespace Application.Services
     public class UserService : IUserService
     {
         private IRepository<User> userRepository;
+        private UnitOfWork UnitOfWork;
         public UserService(IRepository<User> rep)
         {
             userRepository = rep;
+        }
+        public UserService(UnitOfWork uof)
+        {
+            UnitOfWork = uof;
+            userRepository = uof.Repository<User>();
+        }
+        public void AddUser(String username, String fullname)
+        {
+            User u1 = new User() { Usrnam = username, Fullname = fullname, Dept = "test" };
+            userRepository.Insert(u1);
+            UnitOfWork.Save();
+            
         }
         public IEnumerable<User> GetListOfActiveUsers()
         {

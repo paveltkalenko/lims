@@ -49,10 +49,11 @@ namespace consoleLims
             */
             
 
-            using (BaseRepository<User> repository = new BaseRepository<User>())
+            using (UnitOfWork unity = new UnitOfWork())
             {
-                IUserService us = new UserService(repository);
-
+                IUserService us = new UserService(unity);
+                us.AddUser("TEST3","TKALENKO PI");
+                
                 List<User> users = us.GetListOfAllUsers().ToList();
                 foreach (User user in users)
                 {

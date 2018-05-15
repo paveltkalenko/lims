@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Services
 {
-    public interface IRepository<T> : IDisposable
+    public interface IRepository<T>
     {
         IEnumerable<T> GetAll();
         T Get(long id);

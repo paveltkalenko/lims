@@ -46,9 +46,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Application.Services\Application.Services.csproj">
       <Project>{6a93ad40-15c4-4e1a-bf66-51f496229369}</Project>
       <Name>Application.Services</Name>
@@ -61,6 +58,9 @@
       <Project>{cc2b324c-0ba5-45a6-9e50-d6e002ddb862}</Project>
       <Name>Domain.Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
