@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using System.Web.Http;
 
 namespace WebUI
 {
@@ -13,10 +12,7 @@ namespace WebUI
     {
         protected void Application_Start()
         {
-         //   WebApiConfig.Register(GlobalConfiguration.Configuration);
-          //  AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            //   WebApiConfig.Register(GlobalConfiguration.Configuration);
+            AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);

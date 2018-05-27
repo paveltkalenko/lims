@@ -8,43 +8,61 @@ using System.Threading.Tasks;
 //using DomainModel.Entities;
 //using DomainModel.Interfaces;
 using Domain.Services;
-//using Application.Services;
-//using Application.Services.Interfaces;
+using Application.Services;
+using Application.Services.Interfaces;
 using Domain.Model.Entities;
-//using ClientAppLibrary;
 namespace consoleLims
 {
     class Program
     {
         static void Main(string[] args)
         {
+            /*
+                     IGenericRepository<Users> fakeUsers = new FakeUsersRepository();
+                     foreach (Users u in fakeUsers.Get())
+                     {
+                         Console.WriteLine($"{u.Usrnam}\t{u.Dept}");
+                     }
+
+                     Console.ReadKey();
+                     */
+
+            /*
+            using (LaboratoryTestContext db = new LaboratoryTestContext())
+            {
+                /*
+                List<Departments> dept = db.Departments.ToList();
+                foreach (Departments d in dept)
+                {
+                    Console.WriteLine($"{d.Dept}");
+                }
+                
+                List<Users> users = db.Users.ToList();
+                foreach (Users user in users)
+                {
+                    Console.WriteLine($"{user.Usrnam}");
+                    //Console.WriteLine($"{user.DEPT?.Dept??"fdfs"}");
+                    //  Console.WriteLine($"{user.usrnam}|\t{user?.Dept??"без отдела"}|\t{user.DEPT2}|\t{user.DEPT2?.Name??"без имени отдела"}|\t{user.DEPT2?.Dept??"без отдела"}");
+                }
+                
+            }
+            */
             
-            DirectConnectionAppServices services = new DirectConnectionAppServices();
-            var Users = services.GetAllUsers();
-            foreach (User u in Users)
-            {
-                Console.WriteLine($"{u.Usrnam}\t{u.Fullname}\t{u.Dept}");
-            }
-            Console.WriteLine("Я готов, а вы?");
-            Console.ReadKey();
-            /*
-            ClientWebApi webApi = new ClientWebApi((x) => Console.WriteLine(x));
-            var users = webApi.GetUsers();
-            foreach (User u in users)
-            {
-                Console.WriteLine($"{u.Usrnam}\t{u.Fullname}\t{u.Dept}");
-            }
-            */
 
-            Console.ReadKey();    
-            /*
-            UnitOfWork UnitOfWork = new UnitOfWork();
-            Console.WriteLine("Hello World!");
+            using (UnitOfWork unity = new UnitOfWork())
+            {
+                IUserService us = new UserService(unity);
+                us.AddUser("TEST3","TKALENKO PI");
+                
+                List<User> users = us.GetListOfAllUsers().ToList();
+                foreach (User user in users)
+                {
+                    Console.WriteLine($"{user.Usrnam}\t{user.Fullname}");
+                }
+            }
             Console.ReadKey();
-            */
+            
+            
         }
-        
     }
-
-
 }
