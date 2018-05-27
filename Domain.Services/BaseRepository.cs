@@ -33,7 +33,12 @@ namespace Domain.Services
         public IEnumerable<T> GetAll()
         {
             return _dbSet.ToList();
-            throw new NotImplementedException();
+           
+        }
+
+        public IQueryable<T> Table()
+        {
+            return _dbSet.AsQueryable();
         }
 
         public void Insert(T entity)

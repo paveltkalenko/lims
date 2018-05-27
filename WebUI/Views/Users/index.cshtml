@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Domain.Model.Entities.User>
+﻿@model IEnumerable<Application.Services.ViewModels.ListOfUsers>
 
 @{
     ViewBag.Title = "index";
@@ -17,14 +17,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Fullname)
         </th>
+
         <th>
-            @Html.DisplayNameFor(model => model.Dept)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.JobDescription)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
+            @Html.DisplayNameFor(model => model.Status)
         </th>
         <th></th>
     </tr>
@@ -37,14 +32,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Fullname)
         </td>
+ 
         <td>
-            @Html.DisplayFor(modelItem => item.Dept)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.JobDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
+            @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |

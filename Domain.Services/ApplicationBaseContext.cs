@@ -29,9 +29,10 @@ namespace Domain.Services
                       .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                       .AddJsonFile("appsettings.json")
                       .Build();*/
-                var connectionString = "Data Source=(local)\\sqlexpress;Initial Catalog=v11_GEDEON_TEST_DATA; Integrated Security = True";//conf.GetConnectionString("dataConnection");
-                 //   var connectionString = ConfigurationManager.ConnectionStrings["dataConnection"].ConnectionString;
-                    optionsBuilder.UseSqlServer(connectionString);
+                // var connectionString = "Data Source=(local)\\sqlexpress;Initial Catalog=v11_GEDEON_TEST_DATA; Integrated Security = True";//conf.GetConnectionString("dataConnection");
+                var connectionString = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=LIMS_DATA3; Integrated Security = True";
+                                                                                                                                          //     var connectionString = ConfigurationManager.ConnectionStrings["dataConnection"].ConnectionString;
+                optionsBuilder.UseSqlServer(connectionString);
    
             }
         }

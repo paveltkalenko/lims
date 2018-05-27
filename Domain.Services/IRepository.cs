@@ -14,6 +14,7 @@ namespace Domain.Services
         void Update(T entity);
         void Delete(T entity);
         void Remove(T entity);
+        IQueryable<T> Table();
         void SaveChanges();
 
     }

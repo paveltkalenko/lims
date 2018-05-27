@@ -6,9 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using Domain.Model.Entities;
 using Application.Services.Interfaces;
-
+using Application.Services.ViewModels;
 using Application.Services;
-using Domain.Services;
+//using Domain.Services;
 
 namespace WebUI.Controllers.api
 {
@@ -17,13 +17,13 @@ namespace WebUI.Controllers.api
     {
         
         private readonly IUserService userService;
-        UnitOfWork UnitOfWork;
+       // UnitOfWork UnitOfWork;
         private UsersApiController()
         {
-            UnitOfWork = new UnitOfWork();
-            this.userService = new UserService(UnitOfWork);
+        //    UnitOfWork = new UnitOfWork();
+            this.userService = new UserService(/*UnitOfWork*/);
         }
-        public IEnumerable<User> GetAllUsers()
+        public IEnumerable<ListOfUsers> GetAllUsers()
         {
             /* IEnumerable<User> users = new List<User>
              {
@@ -31,7 +31,7 @@ namespace WebUI.Controllers.api
                  new User{Usrnam="superuser", Fullname="tkalenko",Dept="nodept"}
              };*/
 
-            IEnumerable<User> users = userService.GetListOfAllUsers();
+            IEnumerable<ListOfUsers> users = userService.GetListOfAllUsers();
 
             return users;
         }
