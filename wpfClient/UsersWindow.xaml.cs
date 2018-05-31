@@ -29,7 +29,6 @@ namespace wpfClient
             InitializeComponent();
             webApi = new ClientWebApi((x) => Debug.WriteLine(x));
             var users = webApi.GetUsers();
-
             usersGrid.ItemsSource = users;
             
         }
@@ -61,16 +60,7 @@ namespace wpfClient
 
         private void gridUserDescription_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-            MessageBox.Show(" grid_SourceUpdated"+user.JobDescription);
-            Debug.WriteLine("Hello sourceUpdated"+user.JobDescription);
-            Debug.WriteLine("e.OriginalSource" + e.OriginalSource);
-            Debug.WriteLine("e.Source" + e.Source);
-        //    e.
-          //  Debug.WriteLine("e.dfdf" + e.Destination);
-            Debug.WriteLine("e.TargetObject" + e.TargetObject);
-            Debug.WriteLine("e.Handled" + e.Handled);
-            Debug.WriteLine("e.Property" + e.Property);
-            webApi.UpdateUser(user);
+           webApi.UpdateUserAsync(user);
         }
     }
 }

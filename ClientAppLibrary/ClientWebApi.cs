@@ -43,27 +43,22 @@ namespace ClientAppLibrary
             return user;
 
         }
-        public void UpdateUser(User user)
+        public async Task<HttpResponseMessage> UpdateUserAsync(User user)
         {
+            HttpResponseMessage response;
             using (var client = new HttpClient())
             {
-                //    var response = client.GetStringAsync(APP_PATH + $"/api/UsersApi/" + user.Usrnam);
                 var jsonString = JsonConvert.SerializeObject(user);
                 DebugOut("jsonString = " + jsonString);
                 var httpContent = new StringContent(jsonString,Encoding.UTF8,"application/json");
-                //httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                //var response = client.PostAsync(APP_PATH + $"/api/UsersApi/" + user.Usrnam, httpContent);
+
                 DebugOut("httpContent = "+httpContent.ToString());
-                //DebugOut(httpContent.ToString());
-                client.PutAsync(APP_PATH + $"/api/UsersApi/" + user.Usrnam, httpContent);
-                // client.PutAsJson
-                // client.
-                
-                //  DebugOut(response.Result.ToString());
-                // user = JsonConvert.DeserializeObject<User>(response.Result);
+                response = await client.PutAsync(APP_PATH + $"/api/UsersApi/" + user.Usrnam, httpContent);
+                DebugOut($"Task PutAsync Done with code - {response.StatusCode}");
+
 
             }
-            return;
+            return response;
 
         }
 
