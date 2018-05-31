@@ -3,20 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{F62E7C6F-3916-4244-B630-0E44B4FD177F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{9E2EE3EF-A597-4DF9-9963-B4C9E97983F6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "consoleLims", "consoleLims\consoleLims.csproj", "{9F1D4318-4E02-4120-B094-20245E4C6D89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppCore", "AppCore", "{CDB73A22-6F72-4A78-90DA-99F90AAC5B30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Services", "Application.Services\Application.Services.csproj", "{6A93AD40-15C4-4E1A-BF66-51F496229369}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Services", "Application.Services\Application.Services.csproj", "{6A93AD40-15C4-4E1A-BF66-51F496229369}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wpfClient", "wpfClient\wpfClient.csproj", "{2AEC887B-09C2-44A4-A261-C354B51AA90B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F62E7C6F-3916-4244-B630-0E44B4FD177F} = {F62E7C6F-3916-4244-B630-0E44B4FD177F}
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientAppLibrary", "ClientAppLibrary\ClientAppLibrary.csproj", "{3088D3D2-5703-4259-976B-1686BF469819}"
 EndProject
@@ -24,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Services", "Domain.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.Model", "Domain.Model\Domain.Model.csproj", "{E2AEEAE4-DA4D-497D-BAC8-F8E08E4C0C38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTestCore", "ConsoleTestCore\ConsoleTestCore.csproj", "{C8967C59-4855-46F0-A426-A87976627562}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestCore", "ConsoleTestCore\ConsoleTestCore.csproj", "{C8967C59-4855-46F0-A426-A87976627562}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{CEDFE952-A67C-460B-B0AF-FAA2E94DA217}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F62E7C6F-3916-4244-B630-0E44B4FD177F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F62E7C6F-3916-4244-B630-0E44B4FD177F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F62E7C6F-3916-4244-B630-0E44B4FD177F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F62E7C6F-3916-4244-B630-0E44B4FD177F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E2EE3EF-A597-4DF9-9963-B4C9E97983F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E2EE3EF-A597-4DF9-9963-B4C9E97983F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E2EE3EF-A597-4DF9-9963-B4C9E97983F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -68,6 +61,10 @@ Global
 		{C8967C59-4855-46F0-A426-A87976627562}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8967C59-4855-46F0-A426-A87976627562}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8967C59-4855-46F0-A426-A87976627562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEDFE952-A67C-460B-B0AF-FAA2E94DA217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEDFE952-A67C-460B-B0AF-FAA2E94DA217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEDFE952-A67C-460B-B0AF-FAA2E94DA217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEDFE952-A67C-460B-B0AF-FAA2E94DA217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,7 +19,10 @@ namespace Domain.Model.Entities
         public string JobDescription { get; set; }
         [DisplayName("Статус учетной записи")]
         public string Status { get; set; }
-        
+        [DisplayName("Электронная почта")]
+        public string Email { get; set; }
+
+
     }
 
     public enum Statuses

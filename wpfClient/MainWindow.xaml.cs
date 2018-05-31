@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Application.Services.ViewModels;
 using Domain.Model.Entities;
 using ClientAppLibrary;
 namespace wpfClient
@@ -21,26 +22,21 @@ namespace wpfClient
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string APP_PATH = "http://localhost:55010";
+        
         public MainWindow()
         {
             InitializeComponent();
-            List<User> usersList = new List<User>
-            {
-                new User{Usrnam="test",Fullname="fullname_Test", Dept="NoDept"}
-            };
-            usersGrid.ItemsSource = usersList;
-            ClientWebApi webApi = new ClientWebApi((x) => Console.WriteLine(x));
-            var users = webApi.GetUsers();
-            /*
-            foreach (User u in users)
-            {
-                Console.WriteLine($"{u.Usrnam}\t{u.Fullname}\t{u.Dept}");
-            }
-            */
-            usersGrid.ItemsSource = users;
-            //using (var client = new HttpClient)
+          
 
         }
+
+
+
+        private void btnUsers_Click(object sender, RoutedEventArgs e)
+        {
+            UsersWindow usersWindow = new UsersWindow();
+            usersWindow.Show();
+        }
+
     }
 }

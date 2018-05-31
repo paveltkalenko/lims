@@ -1,34 +1,93 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Application.Services.Interfaces;
-using Application.Services.ViewModels;
-using Application.Services;
-using Domain.Model.Entities;
-//using Domain.Services;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+
 namespace WebUI.Controllers
 {
     public class UsersController : Controller
     {
-        private readonly IUserService userService;
-     //   UnitOfWork UnitOfWork;
-        public UsersController(/*IUserService userService*/)
-        {
-            //this.userService = userService;
-          //  UnitOfWork = new UnitOfWork();
-            this.userService = new UserService(/*UnitOfWork*/);
-        }
-
         // GET: Users
         public ActionResult Index()
         {
-            IEnumerable<ListOfUsers> users;
+            return View();
+        }
 
-            users = userService.GetListOfAllUsers();
+        // GET: Users/Details/5
+        public ActionResult Details(int id)
+        {
+            return View();
+        }
 
-            return View(users);
+        // GET: Users/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Users/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Users/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        // POST: Users/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, IFormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: Users/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: Users/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

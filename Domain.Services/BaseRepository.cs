@@ -27,20 +27,24 @@ namespace Domain.Services
 
         public T Get(long id)
         {
+            //return _dbSet.FirstOrDefault(t => t.);
             throw new NotImplementedException();
         }
 
         public IEnumerable<T> GetAll()
         {
-            return _dbSet.ToList();
-           
+            return _dbSet.AsNoTracking().ToList();    
+        }
+
+        public IQueryable<T> TableNoTracking()
+        {
+            return _dbSet.AsQueryable().AsNoTracking();
         }
 
         public IQueryable<T> Table()
         {
             return _dbSet.AsQueryable();
         }
-
         public void Insert(T entity)
         {
             _dbSet.Add(entity);
@@ -59,6 +63,8 @@ namespace Domain.Services
 
         public void Update(T entity)
         {
+            _dbSet.Update(entity);
+            return;
             throw new NotImplementedException();
         }
 

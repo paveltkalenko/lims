@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Application.Services\Application.Services.csproj">
+      <Project>{6a93ad40-15c4-4e1a-bf66-51f496229369}</Project>
+      <Name>Application.Services</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
       <Project>{e2aeeae4-da4d-497d-bac8-f8e08e4c0c38}</Project>
       <Name>Domain.Model</Name>
@@ -54,6 +58,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="UsersApi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

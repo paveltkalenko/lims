@@ -1,0 +1,27 @@
+﻿<Window x:Class="wpfClient.UsersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfClient"
+        mc:Ignorable="d"
+        Title="UsersWindow" Height="620.339" Width="1011.017">
+    <Grid>
+        <DataGrid x:Name="usersGrid" HorizontalAlignment="Left" Height="330" Margin="10,79,0,0" VerticalAlignment="Top" Width="214"
+                  SelectionChanged="usersGrid_SelectionChanged" SelectionMode="Single"
+                  
+                  />
+        <Grid x:Name="gridUserDescription"  HorizontalAlignment="Left" Height="280" Margin="367,79,0,0" VerticalAlignment="Top" Width="290"
+              SourceUpdated="gridUserDescription_SourceUpdated">
+            <TextBox x:Name="tbDept" 
+                HorizontalAlignment="Left" Height="21" Margin="125,30,0,0" TextWrapping="Wrap" Text="{Binding Path=Dept}" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="tbEmail" 
+                HorizontalAlignment="Left" Height="21" Margin="125,70,0,0" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="132"/>
+            <TextBox x:Name="tbJobDescription" 
+                HorizontalAlignment="Left" Height="21" Margin="125,100,0,0" TextWrapping="Wrap" Text="{Binding JobDescription,Mode=TwoWay,NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" VerticalAlignment="Top" Width="132" 
+                     TargetUpdated="tbJobDescription_TargetUpdated"
+                     SourceUpdated="tbJobDescription_SourceUpdated"
+                      />
+        </Grid>
+    </Grid>
+</Window>

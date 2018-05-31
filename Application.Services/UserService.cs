@@ -48,26 +48,40 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public IEnumerable<User> GetListOfAllUsers()
+        public void GetListOfAllUsers<T>(ref IEnumerable<T> x)
         {
-            return userRepository.GetAll();
+            //return userRepository.GetAll();
+            //throw new NotImplementedException();
+            Console.WriteLine(typeof(T));
+            throw new NotImplementedException();
+
+        }
+
+        public User GetUserDescription(String username)
+        {
+            return userRepository.Table().FirstOrDefault<User>(u => u.Usrnam == username);
             throw new NotImplementedException();
         }
 
-        public User GetUserDescription(User user)
-        {
-            throw new NotImplementedException();
-        }
+
 
         IEnumerable<ListOfUsers> IUserService.GetListOfAllUsers()
         {
             return userRepository.Table().Select(u => new ListOfUsers()
-                {
-                    Usrnam = u.Usrnam,
-                    Fullname = u.Usrnam,
-                    Status = "Active"
-                }).ToList();
+            {
+                Usrnam = u.Usrnam,
+                Fullname = u.Fullname,
+                Status = "Active"
+            }).ToList();
             
+        }
+
+        public void UpdateUser(User user)
+        {
+            userRepository.Update(user);
+            UnitOfWork.Save();
+            return;
+            throw new NotImplementedException();
         }
     }
 }
