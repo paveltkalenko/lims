@@ -5,23 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:wpfClient"
         mc:Ignorable="d"
-        Title="UsersWindow" Height="620.339" Width="1011.017">
+        Title="UsersWindow" Height="620.339" Width="1011.017" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid x:Name="usersGrid" HorizontalAlignment="Left" Height="330" Margin="10,79,0,0" VerticalAlignment="Top" Width="214"
-                  SelectionChanged="usersGrid_SelectionChanged" SelectionMode="Single"
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter Grid.Row="1" Grid.Column="3" ShowsPreview="True" Width="3"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+        <DataGrid x:Name="usersGrid" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                  SelectionChanged="usersGrid_SelectionChanged" SelectionMode="Single" CanUserAddRows="False"
                   
                   />
-        <Grid x:Name="gridUserDescription"  HorizontalAlignment="Left" Height="280" Margin="367,79,0,0" VerticalAlignment="Top" Width="290"
-              SourceUpdated="gridUserDescription_SourceUpdated">
-            <TextBox x:Name="tbDept" 
+            <Grid x:Name="gridUserDescription"
+                  Grid.Column="3" Grid.Row="2"
+                  HorizontalAlignment="Center" Height="280" 
+                  VerticalAlignment="Center" Width="290"
+                  SourceUpdated="gridUserDescription_SourceUpdated">
+                <TextBox x:Name="tbDept" 
                 HorizontalAlignment="Left" Height="21" Margin="125,30,0,0" TextWrapping="Wrap" Text="{Binding Path=Dept}" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="tbEmail" 
+                <TextBox x:Name="tbEmail" 
                 HorizontalAlignment="Left" Height="21" Margin="125,70,0,0" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="132"/>
-            <TextBox x:Name="tbJobDescription" 
+                <TextBox x:Name="tbJobDescription" 
                 HorizontalAlignment="Left" Height="21" Margin="125,100,0,0" TextWrapping="Wrap" Text="{Binding JobDescription,Mode=TwoWay,NotifyOnTargetUpdated=True,NotifyOnSourceUpdated=True}" VerticalAlignment="Top" Width="132" 
                      TargetUpdated="tbJobDescription_TargetUpdated"
                      SourceUpdated="tbJobDescription_SourceUpdated"
                       />
-        </Grid>
+
+            </Grid>
+
+       
     </Grid>
 </Window>

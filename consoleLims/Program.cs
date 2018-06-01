@@ -122,7 +122,7 @@ namespace consoleLims
         {
             Console.WriteLine("Введите имя пользователя:");
             string username = Console.ReadLine();
-            User user = client.GetUser(username);
+            User user = client.GetUserAsync(username);
             if (user==null)
             {
                 Console.WriteLine("Пользователь {0} не найден!", username);

@@ -17,28 +17,24 @@ namespace ClientAppLibrary
         {
             DebugOut = DebugAction;
         }
-        public IEnumerable<ListOfUsers> GetUsers()
+        public async Task<IEnumerable<ListOfUsers>> GetUsersAsync()
         {
             DebugOut("Start connect");
             IEnumerable<ListOfUsers> users = null;
             using (var client = new HttpClient())
             {
-                var response = client.GetStringAsync(APP_PATH + "/api/UsersApi");
-                DebugOut(response.Result.ToString());
-                users = JsonConvert.DeserializeObject<IEnumerable<ListOfUsers>>(response.Result);
+                var response = await client.GetStringAsync(APP_PATH + "/api/UsersApi");
+                users = JsonConvert.DeserializeObject<IEnumerable<ListOfUsers>>(response);
             }
             return users;
         }
-
-        public User GetUser(string username)
+        public async Task<User> GetUserAsync(string username)
         {
             User user;
             using (var client = new HttpClient())
             {
-                var response = client.GetStringAsync(APP_PATH + "/api/UsersApi/"+username);
-                DebugOut(response.Result.ToString());
-                user = JsonConvert.DeserializeObject<User>(response.Result);
-                
+                var response = await client.GetStringAsync(APP_PATH + "/api/UsersApi/"+username);
+                user = JsonConvert.DeserializeObject<User>(response);       
             }
             return user;
 
@@ -49,14 +45,8 @@ namespace ClientAppLibrary
             using (var client = new HttpClient())
             {
                 var jsonString = JsonConvert.SerializeObject(user);
-                DebugOut("jsonString = " + jsonString);
                 var httpContent = new StringContent(jsonString,Encoding.UTF8,"application/json");
-
-                DebugOut("httpContent = "+httpContent.ToString());
                 response = await client.PutAsync(APP_PATH + $"/api/UsersApi/" + user.Usrnam, httpContent);
-                DebugOut($"Task PutAsync Done with code - {response.StatusCode}");
-
-
             }
             return response;
 

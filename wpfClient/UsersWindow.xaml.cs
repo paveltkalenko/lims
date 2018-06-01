@@ -28,15 +28,21 @@ namespace wpfClient
         {
             InitializeComponent();
             webApi = new ClientWebApi((x) => Debug.WriteLine(x));
-            var users = webApi.GetUsers();
-            usersGrid.ItemsSource = users;
+
             
         }
 
         private void usersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ListOfUsers u = ((sender as DataGrid).SelectedItem as ListOfUsers);
-            user = webApi.GetUser(u.Usrnam);
+            Task<User> t1;
+            t1 = webApi.GetUserAsync(u.Usrnam);
+            using (LoadWindow lw = new LoadWindow(t1))
+            {
+                lw.Owner = this;
+                lw.ShowDialog();
+            }
+            user = t1.GetAwaiter().GetResult();
             gridUserDescription.DataContext = user;
             //tbJobDescription.Text = user.JobDescription;
         }
@@ -60,7 +66,28 @@ namespace wpfClient
 
         private void gridUserDescription_SourceUpdated(object sender, DataTransferEventArgs e)
         {
-           webApi.UpdateUserAsync(user);
+            Task t1;
+            t1 = webApi.UpdateUserAsync(user);
+            using (LoadWindow lw = new LoadWindow(t1))
+            {
+                lw.Owner = this;
+                lw.ShowDialog();
+            }
+            
+            
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Task<IEnumerable<ListOfUsers>> t = webApi.GetUsersAsync();
+            using (LoadWindow lw = new LoadWindow(t))
+            {
+                lw.Owner = this;
+                lw.ShowDialog();
+            }
+            var users = t.GetAwaiter().GetResult();
+            usersGrid.ItemsSource = users;
+
         }
     }
 }
