@@ -7,6 +7,7 @@ namespace Domain.Model.Entities
     [DisplayName("Испытание")]
     public class Test
     {
-        int Testno { get; set; }
+        [DisplayName("Номер испытания")]
+        public int Testno { get; set; }
     }
 }

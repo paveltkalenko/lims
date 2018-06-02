@@ -6,12 +6,22 @@
         xmlns:local="clr-namespace:wpfClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="879.661" Width="1188.983">
-    <Grid>
-        <StackPanel HorizontalAlignment="Left" Height="231" Margin="0,0,0,0" VerticalAlignment="Top" Width="178">
-            <Button Content="Пользователи" HorizontalAlignment="Center" Height="43" Margin="5,5,5,5" Click="btnUsers_Click"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Left" Height="211" Margin="766,98,0,0" VerticalAlignment="Top" Width="171">
-            <Button Content="Просмотр серий" HorizontalAlignment="Left" Height="41" Margin="10,0,0,0" Width="151"/>
-        </StackPanel>
-    </Grid>
+    <DockPanel LastChildFill="True">
+        <TabControl DockPanel.Dock="Bottom" x:Name="TabControl" VerticalAlignment="Stretch" >
+            <TabItem Header="Главное" >
+                <Grid>
+                    <StackPanel HorizontalAlignment="Left" Height="231" Margin="0,0,0,0" VerticalAlignment="Top" Width="178">
+                        <Button Content="Пользователи" HorizontalAlignment="Center" Height="43" Margin="5,5,5,5" 
+                                Click="btnUsers_Click"/>
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Left" Height="211" Margin="766,98,0,0" VerticalAlignment="Top" Width="171">
+                        <Button Content="Просмотр серий" HorizontalAlignment="Left" Height="41" Margin="10,0,0,0" Width="151"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+    </DockPanel>
+
 </Window>

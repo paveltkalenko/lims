@@ -18,11 +18,13 @@ namespace Application.Services
         {
             userRepository = rep;
         }
+
         public UserService(UnitOfWork uof)
         {
             UnitOfWork = uof;
             userRepository = uof.Repository<User>();
         }
+
         public UserService()
         {
             UnitOfWork = new UnitOfWork();
@@ -30,18 +32,19 @@ namespace Application.Services
         }
         public void AddUser(String username, String fullname)
         {
+            if (username == null) throw new ArgumentNullException();
             User u1 = new User() { Usrnam = username, Fullname = fullname, Dept = "test" };
             userRepository.Insert(u1);
-            UnitOfWork.Save();
-            
+            UnitOfWork.Save();       
         }
+
         public void AddUser(User user)
         {
-            
+            if (user == null) throw new ArgumentNullException();
             userRepository.Insert(user);
             UnitOfWork.Save();
-
         }
+
         public IEnumerable<User> GetListUsersByStatus(Statuses status)
         {
             return userRepository.GetAll();
@@ -50,8 +53,6 @@ namespace Application.Services
 
         public void GetListOfAllUsers<T>(ref IEnumerable<T> x)
         {
-            //return userRepository.GetAll();
-            //throw new NotImplementedException();
             Console.WriteLine(typeof(T));
             throw new NotImplementedException();
 
@@ -60,7 +61,6 @@ namespace Application.Services
         public User GetUserDescription(String username)
         {
             return userRepository.Table().FirstOrDefault<User>(u => u.Usrnam == username);
-            throw new NotImplementedException();
         }
 
 
@@ -71,7 +71,7 @@ namespace Application.Services
             {
                 Usrnam = u.Usrnam,
                 Fullname = u.Fullname,
-                Status = "Active"
+                Status = u.Status
             }).ToList();
             
         }

@@ -1,0 +1,37 @@
+﻿<Window x:Class="wpfClient.UserCreate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfClient"
+        mc:Ignorable="d"
+        Title="Создание учетной записи" Height="250" Width="300">
+    <DockPanel LastChildFill="True">
+        <TextBlock DockPanel.Dock="Top">Введите информацию о новом пользователе:</TextBlock>
+        <Grid DockPanel.Dock="Bottom" Margin="0,0,5,25">
+            <Button x:Name="btnOk"   Width="69"
+                    Click="btnOk_Click"
+                    >Ok</Button>
+            <Button x:Name="btnCancel" HorizontalAlignment="Right" Width="74"
+                    Click="btnCancel_Click"
+                    >Отмена</Button>
+        </Grid>
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Top"  Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Content="Имя пользователя" HorizontalAlignment="Left" VerticalAlignment="Center"  />
+            <TextBox Grid.Column="1" Grid.Row="0" Text="TextBox" VerticalAlignment="Center" Width="120" HorizontalAlignment="Left"/>
+
+            <Label Grid.Column="0" Grid.Row="1" Content="Полное имя" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
+            <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" Text="TextBox" VerticalAlignment="Center" Width="120"/>
+        </Grid>
+
+    </DockPanel>
+</Window>
